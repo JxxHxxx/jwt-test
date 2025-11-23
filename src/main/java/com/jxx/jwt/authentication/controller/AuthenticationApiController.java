@@ -58,4 +58,9 @@ public class AuthenticationApiController {
     public ResponseEntity<?> test() {
         return ResponseEntity.ok().body("test");
     }
+
+    @GetMapping("/v1/api/reload")
+    public ResponseEntity<?> reload() {
+        return ResponseEntity.ok().body("reload");
+    }
 }
