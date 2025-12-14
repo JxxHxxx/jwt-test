@@ -20,9 +20,9 @@ public class WebConfiguration {
 //        corsConfiguration.setAllowCredentials(false);
         corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:5173"));
         corsConfiguration.setAllowedHeaders(Arrays.asList("*"));
+        corsConfiguration.setExposedHeaders(Arrays.asList("Set-Cookie", "jxx-token"));
         corsConfiguration.setAllowedMethods(Arrays.asList("GET","POST","PUT","DELETE","OPTIONS"));
         corsConfiguration.setMaxAge(3600L);
-        corsConfiguration.setExposedHeaders(Arrays.asList("Set-Cookie")); // ★ 쿠키 노출
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", corsConfiguration);
 

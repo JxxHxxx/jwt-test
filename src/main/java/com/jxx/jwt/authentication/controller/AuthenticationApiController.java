@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Objects;
+import java.util.UUID;
 
 @Slf4j
 @RestController
@@ -54,13 +55,16 @@ public class AuthenticationApiController {
                 .body("Success Login");
     }
 
-    @GetMapping("/v1/api/hello")
-    public ResponseEntity<?> test() {
-        return ResponseEntity.ok().body("test");
-    }
-
     @GetMapping("/v1/api/reload")
     public ResponseEntity<?> reload() {
         return ResponseEntity.ok().body("reload");
+    }
+
+    @GetMapping("/v1/api/cors-header-check")
+    public ResponseEntity<?> test() {
+        return ResponseEntity.ok()
+                .header("jxx-token", UUID.randomUUID().toString())
+                .header("jxx-authorization", UUID.randomUUID().toString()) // 클라이언트에 노출 허용 X
+                .body("hello");
     }
 }
